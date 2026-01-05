@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Personal Profile</title>
-  <link rel="stylesheet" href="home/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<div class="background"></div>
-<div class="overlay"></div>
+
+<video class="background-video" autoplay muted loop playsinline>
+  <source src="home/2611250-uhd_3840_2160_30fps.mp4" type="video/mp4">
+</video>
 
 <header>
   <nav>
@@ -26,40 +27,24 @@
 </header>
 
 <main>
-
   <section id="about" class="card">
     <h2>ABOUT ME</h2>
-    <p>
-      I am an IT-oriented individual who values precision, discipline,
-      and efficiency. I prefer clean systems and powerful minimal design.
-    </p>
+    <p>I am an IT-oriented individual who values precision and clean design.</p>
   </section>
 
   <section id="education" class="card">
     <h2>EDUCATION</h2>
-    <p>
-      Bachelor of Science in Information Technology<br>
-      Institution Name<br>
-      Year
-    </p>
+    <p>BSc IT – Institution Name – Year</p>
   </section>
 
   <section id="experience" class="card">
     <h2>IT EXPERIENCE</h2>
-    <p>
-      Web Development<br>
-      PC Troubleshooting<br>
-      Database Fundamentals<br>
-      Version Control
-    </p>
+    <p>Web Development, Databases, PC Troubleshooting</p>
   </section>
 
   <section id="goals" class="card">
     <h2>GOALS</h2>
-    <p>
-      To evolve as a disciplined IT professional and build
-      meaningful systems through technology.
-    </p>
+    <p>To grow as a disciplined IT professional and create meaningful technology solutions.</p>
   </section>
 
   <section id="gallery" class="card">
@@ -71,14 +56,16 @@
       <div class="img-box"></div>
     </div>
   </section>
-
 </main>
 
 <footer>
-  <p>Resources used: Original design, system fonts, royalty-free galaxy GIF.</p>
+  <p>Resources used: Original design, royalty-free galaxy video.</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+function toggleTheme() {
+  document.body.classList.toggle("light");
+}
+</script>
 </body>
-
 </html>
