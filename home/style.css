@@ -2,20 +2,18 @@
   --bg: #050608;
   --text: #e0e0e0;
   --accent: #b30000;
-  --card: rgba(15, 17, 23, 0.85);
+  --card: rgba(15,17,23,0.9);
   --border: #1f222c;
-  --nav-bg: rgba(0, 0, 0, 0.85);
-  --glow: rgba(179, 0, 0, 0.6);
+  --glow: rgba(179,0,0,0.6);
 }
 
 body.light {
   --bg: #f2f2f2;
   --text: #121212;
   --accent: #8b0000;
-  --card: rgba(255, 255, 255, 0.9);
+  --card: rgba(255,255,255,0.9);
   --border: #cccccc;
-  --nav-bg: rgba(255, 255, 255, 0.85);
-  --glow: rgba(139, 0, 0, 0.4);
+  --glow: rgba(139,0,0,0.4);
 }
 
 * {
@@ -26,32 +24,31 @@ body.light {
 }
 
 body {
-  color: var(--text);
   background: var(--bg);
-  transition: color 0.5s ease, background 0.5s ease;
+  color: var(--text);
+  transition: background 0.6s ease, color 0.6s ease;
 }
 
-.background {
+/* VIDEO BACKGROUND */
+.background-video {
   position: fixed;
-  inset: 0;
-  background: url("home/portal.gif") center / cover no-repeat;
-  z-index: -2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2; /* below everything */
 }
 
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
-  z-index: -1;
-}
-
+/* HEADER / NAVBAR */
 header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  background: var(--nav-bg);
+  background: rgba(0,0,0,0.85);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(8px);
-  z-index: 1000;
+  z-index: 1000; /* above background */
 }
 
 nav {
@@ -59,19 +56,18 @@ nav {
   margin: auto;
   padding: 1rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
   letter-spacing: 3px;
   font-weight: bold;
-  color: var(--text);
 }
 
 nav ul {
-  display: flex;
   list-style: none;
+  display: flex;
   gap: 1.2rem;
 }
 
@@ -113,12 +109,14 @@ nav a:hover::after {
   box-shadow: 0 0 12px var(--glow);
 }
 
+/* MAIN CONTENT */
 main {
   max-width: 900px;
-  margin: 7rem auto 3rem;
-  padding: 1rem;
+  margin: 0 auto;
+  padding: 7rem 1rem 3rem; /* top padding clears fixed header */
 }
 
+/* CARDS */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -131,7 +129,7 @@ main {
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 0 22px var(--glow);
+  box-shadow: 0 0 20px var(--glow);
 }
 
 .card h2 {
@@ -140,6 +138,7 @@ main {
   margin-bottom: 1rem;
 }
 
+/* GALLERY */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -159,6 +158,7 @@ main {
   box-shadow: 0 0 15px var(--glow);
 }
 
+/* FOOTER */
 footer {
   text-align: center;
   padding: 2rem;
@@ -166,9 +166,14 @@ footer {
   opacity: 0.7;
 }
 
+/* RESPONSIVE */
 @media (max-width: 600px) {
   nav ul {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  main {
+    padding-top: 8rem; /* extra top padding for taller mobile header */
   }
 }
