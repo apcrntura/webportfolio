@@ -3,81 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Profile</title>
+    <title>Personal Space Profile</title>
     <link rel="stylesheet" href="home/style.css">
 </head>
 <body>
 
     <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">IT Experience</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-        </ul>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">IT Exp</a>
+        <a href="#gallery">Gallery</a>
     </nav>
 
-    <header>
-        <h1>Welcome to My Profile</h1>
-        <p>Software Enthusiast | Learner | Dreamer</p>
+    <header class="reveal-zone">
+        <button id="rocket-btn">
+            <span class="rocket-icon">🚀</span>
+            <span id="btn-text">LAUNCH PROFILE</span>
+        </button>
+
+        <div id="photo-reveal" class="hidden">
+            <img src="your-photo.jpg" alt="Me" class="profile-img">
+            <h1 style="font-size: 1.5rem; margin-top: 10px;">[Your Name]</h1>
+        </div>
     </header>
 
     <main>
         <section id="about">
             <h2>About Me</h2>
-            <p>Hello! I am [Your Name], a passionate individual interested in the world of technology. I love solving problems and building things that live on the internet.</p>
+            <div class="card">
+                <p>I am a passionate explorer of technology and code, dedicated to building creative digital solutions.</p>
+            </div>
         </section>
 
         <section id="education">
             <h2>Education & Course</h2>
             <div class="card">
-                <h3>Current Course: [e.g., BS in Information Technology]</h3>
-                <p><strong>Institution:</strong> [University Name]</p>
-                <p><strong>Achievements:</strong> Dean's Lister 2024, Hackathon Runner-up.</p>
+                <p><strong>Course:</strong> BS in Information Technology</p>
+                <p><strong>Award:</strong> 2024 Academic Excellence Award</p>
             </div>
         </section>
 
         <section id="experience">
             <h2>IT Experience</h2>
-            <ul>
-                <li><strong>Internship:</strong> Web Developer at ABC Tech (3 months)</li>
-                <li><strong>Project:</strong> Built a Task Management App using React.</li>
-                <li><strong>Skills:</strong> HTML, CSS, JavaScript, Python.</li>
-            </ul>
+            <div class="card">
+                <ul>
+                    <li>Web Design Intern at TechCorp</li>
+                    <li>Developed Personal CMS Project</li>
+                </ul>
+            </div>
         </section>
 
         <section id="hobbies">
-            <h2>Hobbies & Interests</h2>
-            <div class="flex-container">
-                <span>Gaming</span>
-                <span>Photography</span>
-                <span>Open Source Contributing</span>
-                <span>Hiking</span>
+            <h2>Hobbies</h2>
+            <div class="tags">
+                <span>Gaming</span> <span>Astronomy</span> <span>Coding</span>
             </div>
         </section>
 
         <section id="goals">
             <h2>Goals & Dreams</h2>
-            <blockquote>
-                "My dream is to become a Solutions Architect and build sustainable technology that bridges the digital divide."
-            </blockquote>
+            <div class="card">
+                <p>"To become a Lead Developer and contribute to open-source space tech."</p>
+            </div>
         </section>
 
         <section id="gallery">
-            <h2>Picture Gallery</h2>
+            <h2>Gallery</h2>
             <div class="gallery-grid">
-                <img src="https://via.placeholder.com/200" alt="Work Life">
-                <img src="https://via.placeholder.com/200" alt="Hobbies">
-                <img src="https://via.placeholder.com/200" alt="Travel">
-                <img src="https://via.placeholder.com/200" alt="Events">
+                <img src="https://via.placeholder.com/150" alt="1">
+                <img src="https://via.placeholder.com/150" alt="2">
+                <img src="https://via.placeholder.com/150" alt="3">
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
-    </footer>
+    <script>
+        const rocketBtn = document.getElementById('rocket-btn');
+        const photoReveal = document.getElementById('photo-reveal');
+        const btnText = document.getElementById('btn-text');
 
-    <script src="script.js"></script>
+        rocketBtn.addEventListener('click', () => {
+            // Start the rocket fly-up animation
+            rocketBtn.classList.add('launching');
+            btnText.style.opacity = '0';
+
+            // Wait 800ms for rocket to fly off screen
+            setTimeout(() => {
+                rocketBtn.style.display = 'none'; // Remove button
+                photoReveal.classList.remove('hidden'); // Show photo
+                photoReveal.classList.add('fade-in'); // Animate photo in
+            }, 800);
+        });
+    </script>
+
 </body>
 </html>
