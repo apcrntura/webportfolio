@@ -1,109 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Galaxy Profile</title>
-    <link rel="stylesheet" href="home/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="home/style.css">
+  <title>Personal Profile | Dark Theme</title>
+
+  <style>
+    /* ===== CSS VARIABLES (COLOR SCHEME) ===== */
+    :root {
+      --bg-color: #0b0d10;
+      --text-color: #e5e5e5;
+      --accent-color: #c40000;
+      --card-bg: #151820;
+      --border-color: #2a2f3a;
+    }
+
+    body.light {
+      --bg-color: #f4f4f4;
+      --text-color: #1a1a1a;
+      --accent-color: #8b0000;
+      --card-bg: #ffffff;
+      --border-color: #cccccc;
+    }
+
+    /* ===== GLOBAL STYLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    /* ===== NAVIGATION ===== */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.8);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+    }
+
+    nav button {
+      background: none;
+      border: 1px solid var(--accent-color);
+      color: var(--text-color);
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+    }
+
+    /* ===== MAIN LAYOUT ===== */
+    main {
+      max-width: 900px;
+      margin: 6rem auto 3rem;
+      padding: 1rem;
+    }
+
+    section {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    section h2 {
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+      letter-spacing: 1px;
+    }
+
+    /* ===== GALLERY ===== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery div {
+      background: #222;
+      height: 120px;
+      border-radius: 4px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">IT Exp</a>
-            <a href="#gallery">Gallery</a>
-        </div>
-        <button id="mode-toggle">Toggle Light Mode</button>
-    </nav>
+<header>
+  <nav>
+    <strong>MY PROFILE</strong>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">IT Experience</a></li>
+      <li><a href="#goals">Goals</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+    <button onclick="toggleTheme()">🌙 / ☀️</button>
+  </nav>
+</header>
 
-    <header class="header-area">
-        <button id="rocket-btn">
-            <span class="rocket-icon">🚀</span>
-            <span id="btn-text">LAUNCH PROFILE</span>
-        </button>
+<main>
 
-        <div id="photo-reveal" class="hidden">
-            <img src="YOUR_PHOTO.jpg" alt="Profile Photo" class="profile-img">
-            <h1 style="margin-top: 10px;">[Your Name]</h1>
-        </div>
-    </header>
+  <section id="about">
+    <h2>ABOUT ME</h2>
+    <p>
+      I am an aspiring IT professional with a strong interest in technology,
+      system development, and continuous learning. I value simplicity,
+      structure, and efficiency in both design and problem-solving.
+    </p>
+  </section>
 
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="card">
-                <p>Digital explorer and IT enthusiast focusing on building creative and efficient solutions.</p>
-            </div>
-        </section>
+  <section id="education">
+    <h2>EDUCATION</h2>
+    <p>
+      Bachelor of Science in Information Technology<br>
+      (School Name Here)<br>
+      Year Graduated / Expected Graduation
+    </p>
+  </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="card">
-                <p><strong>BS in Information Technology</strong> - [University Name]</p>
-                <p>Achievements: [Your achievement here]</p>
-            </div>
-        </section>
+  <section id="experience">
+    <h2>IT EXPERIENCE</h2>
+    <p>
+      • Basic Web Development (HTML, CSS, JavaScript)<br>
+      • Computer Hardware & Troubleshooting<br>
+      • Database Fundamentals<br>
+      • Version Control Basics
+    </p>
+  </section>
 
-        <section id="experience">
-            <h2>IT Experience</h2>
-            <div class="card">
-                <ul>
-                    <li>Web Design & Development</li>
-                    <li>Software Troubleshooting</li>
-                </ul>
-            </div>
-        </section>
+  <section id="goals">
+    <h2>GOALS</h2>
+    <p>
+      My goal is to become a skilled IT professional specializing in
+      software development and system design while continuously improving
+      my technical and creative abilities.
+    </p>
+  </section>
 
-        <section id="goals">
-            <h2>Goals</h2>
-            <div class="card">
-                <p>"To reach the summit of full-stack development."</p>
-            </div>
-        </section>
+  <section id="gallery">
+    <h2>GALLERY</h2>
+    <div class="gallery">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </section>
 
-        <section id="gallery">
-            <h2>Gallery</h2>
-            <div class="gallery-grid">
-                <img src="https://via.placeholder.com/150" alt="1">
-                <img src="https://via.placeholder.com/150" alt="2">
-                <img src="https://via.placeholder.com/150" alt="3">
-            </div>
-        </section>
-    </main>
+</main>
 
-    <script>
-        // --- 1. Rocket Reveal Logic ---
-        const rocketBtn = document.getElementById('rocket-btn');
-        const photoReveal = document.getElementById('photo-reveal');
-        const btnText = document.getElementById('btn-text');
+<footer>
+  <p><strong>Resource Documentation:</strong></p>
+  <p>
+    • Fonts: System Default (Segoe UI)<br>
+    • Design Inspiration: Minimal Dark UI concepts (Original Design)<br>
+    • No external images or copyrighted media used
+  </p>
+</footer>
 
-        rocketBtn.addEventListener('click', () => {
-            rocketBtn.classList.add('launching');
-            btnText.style.opacity = '0';
-
-            setTimeout(() => {
-                rocketBtn.style.display = 'none';
-                photoReveal.classList.remove('hidden');
-                photoReveal.classList.add('fade-in');
-            }, 800);
-        });
-
-        // --- 2. Dark/Light Mode Logic ---
-        const modeToggle = document.getElementById('mode-toggle');
-        const body = document.body;
-
-        modeToggle.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            
-            // Update button text
-            if (body.classList.contains('light-mode')) {
-                modeToggle.textContent = "Toggle Dark Mode";
-            } else {
-                modeToggle.textContent = "Toggle Light Mode";
-            }
-        });
-    </script>
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle("light");
+  }
+</script>
 
 </body>
 </html>
