@@ -1,179 +1,76 @@
-:root {
-  --bg: #050608;
-  --text: #e0e0e0;
-  --accent: #b30000;
-  --card: rgba(15,17,23,0.9);
-  --border: #1f222c;
-  --glow: rgba(179,0,0,0.6);
-}
-
-body.light {
-  --bg: #f2f2f2;
-  --text: #121212;
-  --accent: #8b0000;
-  --card: rgba(255,255,255,0.9);
-  --border: #cccccc;
-  --glow: rgba(139,0,0,0.4);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-
+/* -------------------- Body & Background -------------------- */
 body {
-  background: var(--bg);
-  color: var(--text);
-  transition: background 0.6s ease, color 0.6s ease;
+    margin: 0;
+    padding-top: 80px; /* Space for fixed navbar */
+    font-family: Arial, Helvetica, sans-serif;
+    background: url('assets/galaxy.gif') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
 }
 
-/* VIDEO BACKGROUND */
-.background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2; /* below everything */
+/* Optional: subtle overlay for better text readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* dark overlay */
+    z-index: -1;
 }
 
-/* HEADER / NAVBAR */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.85);
-  border-bottom: 1px solid var(--border);
-  z-index: 1000; /* above background */
-}
-
+/* -------------------- Navbar -------------------- */
 nav {
-  max-width: 1100px;
-  margin: auto;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  letter-spacing: 3px;
-  font-weight: bold;
+    position: fixed;       /* Fixes navbar at top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.85); /* semi-transparent */
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3); /* optional red glow */
+    padding: 15px 0;
 }
 
 nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.2rem;
+    list-style: none;
+    display: flex;
+    justify-content: center; /* center the menu */
+    margin: 0;
+    padding: 0;
 }
 
-nav a {
-  color: var(--text);
-  position: relative;
-  transition: color 0.3s ease;
+nav ul li {
+    margin: 0 20px;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.3s ease;
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-nav a:hover {
-  color: var(--accent);
+nav ul li a:hover {
+    color: #ff0000; /* highlight on hover */
 }
 
-nav a:hover::after {
-  width: 100%;
+/* -------------------- Section Styling -------------------- */
+section {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.6); /* slightly transparent black */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
 }
 
-.theme-btn {
-  background: none;
-  border: 1px solid var(--accent);
-  color: var(--text);
-  padding: 0.4rem 0.7rem;
-  cursor: pointer;
-  transition: box-shadow 0.3s ease;
+h1, h2, h3 {
+    color: #ff0000; /* red headers */
+    text-align: center;
 }
 
-.theme-btn:hover {
-  box-shadow: 0 0 12px var(--glow);
-}
-
-/* MAIN CONTENT */
-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 7rem 1rem 3rem; /* top padding clears fixed header */
-}
-
-/* CARDS */
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 20px var(--glow);
-}
-
-.card h2 {
-  color: var(--accent);
-  letter-spacing: 2px;
-  margin-bottom: 1rem;
-}
-
-/* GALLERY */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-}
-
-.img-box {
-  height: 120px;
-  background: linear-gradient(135deg, #1a1a1a, #000);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.img-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px var(--glow);
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  main {
-    padding-top: 8rem; /* extra top padding for taller mobile header */
-  }
+/* -------------------- Smooth Scroll -------------------- */
+html {
+    scroll-behavior: smooth;
 }
