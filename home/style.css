@@ -16,7 +16,12 @@ body.light {
   --glow: rgba(139,0,0,0.4);
 }
 
-* { margin:0; padding:0; box-sizing:border-box; font-family:"Segoe UI", sans-serif; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
 
 body {
   background: var(--bg);
@@ -24,36 +29,47 @@ body {
   transition: background 0.6s ease, color 0.6s ease;
 }
 
+/* VIDEO BACKGROUND */
 .background-video {
   position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:-2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2; /* below everything */
 }
 
+/* HEADER / NAVBAR */
 header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   background: rgba(0,0,0,0.85);
-  border-bottom:1px solid var(--border);
-  z-index:1000;
+  border-bottom: 1px solid var(--border);
+  z-index: 1000; /* above background */
 }
 
 nav {
-  max-width:1100px;
-  margin:auto;
-  padding:1rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo { letter-spacing:3px; font-weight:bold; }
+.logo {
+  letter-spacing: 3px;
+  font-weight: bold;
+}
 
-nav ul { list-style:none; display:flex; gap:1.2rem; }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+}
 
 nav a {
   color: var(--text);
@@ -62,59 +78,102 @@ nav a {
 }
 
 nav a::after {
-  content:"";
-  position:absolute;
-  bottom:-4px;
-  left:0;
-  width:0;
-  height:2px;
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
   background: var(--accent);
   transition: width 0.3s ease;
 }
 
-nav a:hover { color: var(--accent); }
-nav a:hover::after { width:100%; }
+nav a:hover {
+  color: var(--accent);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
 
 .theme-btn {
-  background:none;
-  border:1px solid var(--accent);
-  color:var(--text);
-  padding:0.4rem 0.7rem;
-  cursor:pointer;
+  background: none;
+  border: 1px solid var(--accent);
+  color: var(--text);
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
 }
-.theme-btn:hover { box-shadow:0 0 12px var(--glow); }
 
-main { max-width:900px; margin:7rem auto 3rem; padding:1rem; }
+.theme-btn:hover {
+  box-shadow: 0 0 12px var(--glow);
+}
 
+/* MAIN CONTENT */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 7rem 1rem 3rem; /* top padding clears fixed header */
+}
+
+/* CARDS */
 .card {
   background: var(--card);
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:2rem;
-  margin-bottom:2rem;
-  text-align:center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-.card:hover { transform:translateY(-6px); box-shadow:0 0 20px var(--glow); }
-.card h2 { color: var(--accent); letter-spacing:2px; margin-bottom:1rem; }
 
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px var(--glow);
+}
+
+.card h2 {
+  color: var(--accent);
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+/* GALLERY */
 .gallery {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
-  gap:1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
 }
 
 .img-box {
-  height:120px;
+  height: 120px;
   background: linear-gradient(135deg, #1a1a1a, #000);
-  border:1px solid var(--border);
-  border-radius:6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-.img-box:hover { transform: scale(1.05); box-shadow:0 0 15px var(--glow); }
 
-footer { text-align:center; padding:2rem; font-size:0.85rem; opacity:0.7; }
+.img-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--glow);
+}
 
-@media (max-width:600px){
-  nav ul{ flex-wrap:wrap; justify-content:center; }
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  main {
+    padding-top: 8rem; /* extra top padding for taller mobile header */
+  }
 }
