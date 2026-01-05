@@ -2,8 +2,9 @@
   --bg: #050608;
   --text: #e0e0e0;
   --accent: #b30000;
-  --card: #0f1117;
+  --card: rgba(15, 17, 23, 0.85);
   --border: #1f222c;
+  --nav-bg: rgba(0, 0, 0, 0.85);
   --glow: rgba(179, 0, 0, 0.6);
 }
 
@@ -11,8 +12,9 @@ body.light {
   --bg: #f2f2f2;
   --text: #121212;
   --accent: #8b0000;
-  --card: #ffffff;
+  --card: rgba(255, 255, 255, 0.9);
   --border: #cccccc;
+  --nav-bg: rgba(255, 255, 255, 0.85);
   --glow: rgba(139, 0, 0, 0.4);
 }
 
@@ -24,9 +26,9 @@ body.light {
 }
 
 body {
-  background: radial-gradient(circle at top, #0b0d13, var(--bg));
   color: var(--text);
-  transition: background 0.6s ease, color 0.6s ease;
+  background: var(--bg);
+  transition: color 0.5s ease, background 0.5s ease;
 }
 
 .background {
@@ -34,23 +36,21 @@ body {
   inset: 0;
   background: url("home/galaxy.gif") center / cover no-repeat;
   z-index: -2;
-  animation: fadeIn 2s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
+  z-index: -1;
 }
 
 header {
   position: fixed;
   width: 100%;
-  background: rgba(0,0,0,0.9);
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
   z-index: 1000;
 }
 
@@ -66,6 +66,7 @@ nav {
 .logo {
   letter-spacing: 3px;
   font-weight: bold;
+  color: var(--text);
 }
 
 nav ul {
@@ -119,7 +120,7 @@ main {
 }
 
 .card {
-  background: linear-gradient(145deg, var(--card), #07080c);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 2rem;
@@ -130,7 +131,7 @@ main {
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 0 20px var(--glow);
+  box-shadow: 0 0 22px var(--glow);
 }
 
 .card h2 {
