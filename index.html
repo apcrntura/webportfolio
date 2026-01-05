@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Space Profile</title>
-    <link rel="stylesheet" href="home/style.css">
+    <title>Personal Galaxy Profile</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#experience">IT Exp</a>
-        <a href="#gallery">Gallery</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#experience">IT Exp</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+        <button id="mode-toggle">Toggle Light Mode</button>
     </nav>
 
-    <header class="reveal-zone">
+    <header class="header-area">
         <button id="rocket-btn">
             <span class="rocket-icon">🚀</span>
             <span id="btn-text">LAUNCH PROFILE</span>
         </button>
 
         <div id="photo-reveal" class="hidden">
-            <img src="your-photo.jpg" alt="Me" class="profile-img">
-            <h1 style="font-size: 1.5rem; margin-top: 10px;">[Your Name]</h1>
+            <img src="YOUR_PHOTO.jpg" alt="Profile Photo" class="profile-img">
+            <h1 style="margin-top: 10px;">[Your Name]</h1>
         </div>
     </header>
 
@@ -31,15 +33,15 @@
         <section id="about">
             <h2>About Me</h2>
             <div class="card">
-                <p>I am a passionate explorer of technology and code, dedicated to building creative digital solutions.</p>
+                <p>Digital explorer and IT enthusiast focusing on building creative and efficient solutions.</p>
             </div>
         </section>
 
         <section id="education">
-            <h2>Education & Course</h2>
+            <h2>Education</h2>
             <div class="card">
-                <p><strong>Course:</strong> BS in Information Technology</p>
-                <p><strong>Award:</strong> 2024 Academic Excellence Award</p>
+                <p><strong>BS in Information Technology</strong> - [University Name]</p>
+                <p>Achievements: [Your achievement here]</p>
             </div>
         </section>
 
@@ -47,23 +49,16 @@
             <h2>IT Experience</h2>
             <div class="card">
                 <ul>
-                    <li>Web Design Intern at TechCorp</li>
-                    <li>Developed Personal CMS Project</li>
+                    <li>Web Design & Development</li>
+                    <li>Software Troubleshooting</li>
                 </ul>
             </div>
         </section>
 
-        <section id="hobbies">
-            <h2>Hobbies</h2>
-            <div class="tags">
-                <span>Gaming</span> <span>Astronomy</span> <span>Coding</span>
-            </div>
-        </section>
-
         <section id="goals">
-            <h2>Goals & Dreams</h2>
+            <h2>Goals</h2>
             <div class="card">
-                <p>"To become a Lead Developer and contribute to open-source space tech."</p>
+                <p>"To reach the summit of full-stack development."</p>
             </div>
         </section>
 
@@ -78,21 +73,35 @@
     </main>
 
     <script>
+        // --- 1. Rocket Reveal Logic ---
         const rocketBtn = document.getElementById('rocket-btn');
         const photoReveal = document.getElementById('photo-reveal');
         const btnText = document.getElementById('btn-text');
 
         rocketBtn.addEventListener('click', () => {
-            // Start the rocket fly-up animation
             rocketBtn.classList.add('launching');
             btnText.style.opacity = '0';
 
-            // Wait 800ms for rocket to fly off screen
             setTimeout(() => {
-                rocketBtn.style.display = 'none'; // Remove button
-                photoReveal.classList.remove('hidden'); // Show photo
-                photoReveal.classList.add('fade-in'); // Animate photo in
+                rocketBtn.style.display = 'none';
+                photoReveal.classList.remove('hidden');
+                photoReveal.classList.add('fade-in');
             }, 800);
+        });
+
+        // --- 2. Dark/Light Mode Logic ---
+        const modeToggle = document.getElementById('mode-toggle');
+        const body = document.body;
+
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            
+            // Update button text
+            if (body.classList.contains('light-mode')) {
+                modeToggle.textContent = "Toggle Dark Mode";
+            } else {
+                modeToggle.textContent = "Toggle Light Mode";
+            }
         });
     </script>
 
